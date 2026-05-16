@@ -1,0 +1,25 @@
+metadata:
+  id: 42
+  owner: "son_goku"
+  tags:
+    - "training"
+    - "power"
+services:
+  - name: api
+    enabled: true
+    limits:
+      cpu: "500m"
+      memory: "256Mi"
+    endpoints:
+      - path: /health
+        methods: [GET]
+      - path: /v1/convert
+        methods: [POST]
+  - name: worker
+    enabled: false
+    schedule: "0 */6 * * *"
+    env:
+      - key: "MODE"
+        value: "batch"
+      - key: "RETRIES"
+        value: "3"

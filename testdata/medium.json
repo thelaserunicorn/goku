@@ -1,0 +1,14 @@
+{
+  "app": {
+    "features": {
+      "logging": true,
+      "metrics": false
+    },
+    "name": "KameHouse",
+    "ports": [
+      8080,
+      9090
+    ],
+    "version": "1.2.0"
+  }
+}

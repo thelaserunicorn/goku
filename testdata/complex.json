@@ -1,0 +1,49 @@
+{
+  "metadata": {
+    "id": 42,
+    "owner": "son_goku",
+    "tags": [
+      "training",
+      "power"
+    ]
+  },
+  "services": [
+    {
+      "enabled": true,
+      "endpoints": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "path": "/health"
+        },
+        {
+          "methods": [
+            "POST"
+          ],
+          "path": "/v1/convert"
+        }
+      ],
+      "limits": {
+        "cpu": "500m",
+        "memory": "256Mi"
+      },
+      "name": "api"
+    },
+    {
+      "enabled": false,
+      "env": [
+        {
+          "key": "MODE",
+          "value": "batch"
+        },
+        {
+          "key": "RETRIES",
+          "value": "3"
+        }
+      ],
+      "name": "worker",
+      "schedule": "0 */6 * * *"
+    }
+  ]
+}
